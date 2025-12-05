@@ -36,14 +36,17 @@ function sendWhatsAppMessage(to, message) {
 // VERIFY WEBHOOK (IMPORTANT)
 // =========================================================
 
+// WhatsApp Webhook Verification
 app.get("/webhook", (req, res) => {
+    const VERIFY_TOKEN = "mybot123";  // use your verify token
+
     const mode = req.query["hub.mode"];
     const token = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
 
     if (mode && token) {
         if (mode === "subscribe" && token === VERIFY_TOKEN) {
-            console.log("Webhook Verified!");
+            console.log("WEBHOOK VERIFIED");
             return res.status(200).send(challenge);
         } else {
             return res.sendStatus(403);
