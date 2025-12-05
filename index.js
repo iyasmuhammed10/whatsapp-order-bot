@@ -36,9 +36,8 @@ function sendWhatsAppMessage(to, message) {
 // VERIFY WEBHOOK (IMPORTANT)
 // =========================================================
 
-// WhatsApp Webhook Verification
 app.get("/webhook", (req, res) => {
-    const VERIFY_TOKEN = "mybot123";  // use your verify token
+    const VERIFY_TOKEN = "mybot123";
 
     const mode = req.query["hub.mode"];
     const token = req.query["hub.verify_token"];
@@ -51,9 +50,14 @@ app.get("/webhook", (req, res) => {
         } else {
             return res.sendStatus(403);
         }
+    } else {
+        return res.send("Webhook endpoint running");
     }
 });
 
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
 // =========================================================
 // RECEIVE WHATSAPP MESSAGES
 // =========================================================
