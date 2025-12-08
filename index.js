@@ -36,7 +36,6 @@ function sendWhatsAppMessage(to, message) {
 // VERIFY WEBHOOK (IMPORTANT)
 // =========================================================
 
-const express = require("express");
 const app = express();
 app.use(express.json());
 
