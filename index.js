@@ -38,7 +38,6 @@ function sendWhatsAppMessage(to, message) {
 
 app.use(express.json());
 
-const VERIFY_TOKEN = "mybot123";
 
 // GET webhook for verification
 app.get("/webhook", (req, res) => {
